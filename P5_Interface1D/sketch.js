@@ -39,7 +39,7 @@ function setup() {
 
   controller = new Controller();            // Initializing controller
 
-  score = {max:3, winner:color(0,0,0)};     // score stores max number of points, and color 
+  score = {max:5, winner:color(0,0,0)};     // score stores max number of points, and color 
 
 }
 
