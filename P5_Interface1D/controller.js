@@ -30,7 +30,7 @@ class Controller {
                 
 
                 // now add the target
-                display.setPixel(target.position, target.playerColor);
+                //display.setPixel(target.position, target.playerColor);
 
                 
                 // check if player has caught target
