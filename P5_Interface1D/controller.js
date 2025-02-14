@@ -71,9 +71,9 @@ class Controller {
                         this.gameState = "SCORE";               // go to state that displays score
                     
                     // We've hit score max, this player wins
-                    } else if (playerTwo.score >= score.max) {
-                        score.winner = playerTwo.playerColor;   // store winning color in score.winner
-                        this.gameState = "SCORE";               // go to state that displays score
+                    //} else if (playerTwo.score >= score.max) {
+                    //    score.winner = playerTwo.playerColor;   // store winning color in score.winner
+                     //   this.gameState = "SCORE";               // go to state that displays score
 
                     // We haven't hit the max score yet, keep playing    
                     } else {
