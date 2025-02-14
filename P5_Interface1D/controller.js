@@ -49,34 +49,40 @@ class Controller {
 
             // This state is used to play an animation, after a target has been caught by a player 
             case "COLLISION":
-    // Clear screen before rendering animation frame
-    display.clear();
+                
+                 // clear screen at frame rate so we always start fresh      
+                 display.clear();
 
-    // Get the current frame of the collision animation
-    let frameToShow = collisionAnimation.currentFrame();  
+                // play explosion animation one frame at a time.
+                // first figure out what frame to show
+                let frameToShow = collisionAnimation.currentFrame();    // this grabs number of current frame and increments it 
+                
+                // then grab every pixel of frame and put it into the display buffer
+                for(let i = 0; i < collisionAnimation.pixels; i++) {
+                    display.setPixel(i,collisionAnimation.animation[frameToShow][i]);                    
+                }
 
-    // Render the explosion animation frame
-    for (let i = 0; i < collisionAnimation.pixels; i++) {
-        display.setPixel(i, collisionAnimation.animation[frameToShow][i]);                    
-    }
+                //check if animation is done and we should move on to another state
+                if (frameToShow == collisionAnimation.animation.length-1)  {
+                    
+                    // We've hit score max, this player wins
+                    if (playerOne.score >= score.max) {
+                        score.winner = playerOne.playerColor;   // store winning color in score.winner
+                        this.gameState = "SCORE";               // go to state that displays score
+                    
+                    // We've hit score max, this player wins
+                    //} else if (playerTwo.score >= score.max) {
+                    //    score.winner = playerTwo.playerColor;   // store winning color in score.winner
+                     //   this.gameState = "SCORE";               // go to state that displays score
 
-    // If the animation has finished, reset player positions and return to play state
-    if (frameToShow >= collisionAnimation.animation.length - 1) {
-        
-        // Reset player positions to a random location
-        playerOne.position = parseInt(random(0, displaySize));
-        playerTwo.position = parseInt(random(0, displaySize));
+                    // We haven't hit the max score yet, keep playing    
+                    } else {
+                        target.position = parseInt(random(0,displaySize));  // move the target to a new random position
+                        this.gameState = "PLAY";    // back to play state
+                    }
+                } 
 
-        // Check if playerOne has won
-        if (playerOne.score >= score.max) {
-            score.winner = playerOne.playerColor;
-            this.gameState = "SCORE";  
-        } else {
-            this.gameState = "PLAY";  
-        }
-    }
-    break;
-
+                break;
 
             // Game is over. Show winner and clean everything up so we can start a new game.
             case "SCORE":       
@@ -86,7 +92,7 @@ class Controller {
                 playerTwo.score = 0;
 
                 // put the target somewhere else, so we don't restart the game with player and target in the same place
-                target.position = parseInt(random(1,displaySize));
+                playerTwo.position = parseInt(random(1,displaySize));
 
                 //light up w/ winner color by populating all pixels in buffer with their color
                 display.setAllPixels(score.winner);                    
