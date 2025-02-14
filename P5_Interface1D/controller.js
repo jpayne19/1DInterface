@@ -77,7 +77,7 @@ class Controller {
 
                     // We haven't hit the max score yet, keep playing    
                     } else {
-                        target.position = parseInt(random(0,displaySize));  // move the target to a new random position
+                        playerTwo.position = parseInt(random(0,displaySize));  // move the target to a new random position
                         this.gameState = "PLAY";    // back to play state
                     }
                 } 
