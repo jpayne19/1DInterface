@@ -41,11 +41,11 @@ class Controller {
                 
                 // check if other player has caught target        
                 if (playerTwo.position == target.position)  {
-                   playerTwo.score++;              // increment their score
+                    playerTwo.score++;              // increment their score
                     this.gameState = "COLLISION";   // go to COLLISION state
                 }
 
-                //break;
+                break;
 
             // This state is used to play an animation, after a target has been caught by a player 
             case "COLLISION":
@@ -77,7 +77,7 @@ class Controller {
 
                     // We haven't hit the max score yet, keep playing    
                     } else {
-                        playerTwo.position = parseInt(random(0,displaySize));  // move the target to a new random position
+                        target.position = parseInt(random(0,displaySize));  // move the target to a new random position
                         this.gameState = "PLAY";    // back to play state
                     }
                 } 
@@ -92,7 +92,7 @@ class Controller {
                 playerTwo.score = 0;
 
                 // put the target somewhere else, so we don't restart the game with player and target in the same place
-                playerTwo.position = parseInt(random(1,displaySize));
+                target.position = parseInt(random(1,displaySize));
 
                 //light up w/ winner color by populating all pixels in buffer with their color
                 display.setAllPixels(score.winner);                    

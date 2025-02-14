@@ -1,13 +1,13 @@
 /* /////////////////////////////////////
 
   4.043 / 4.044 Design Studio: Interaction Intelligence
-  February 9, 2024
+  February 7, 2025
   Marcelo Coelho
 
 */ /////////////////////////////////////
 
 
-let displaySize = 20;   // how many pixels are visible in the game
+let displaySize = 30;   // how many pixels are visible in the game
 let pixelSize = 20;     // how big each 'pixel' looks on screen
 
 let playerOne;    // Adding 2 players to the game
@@ -56,5 +56,3 @@ function draw() {
 
 
 }
-
-
