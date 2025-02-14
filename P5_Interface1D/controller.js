@@ -41,11 +41,11 @@ class Controller {
                 
                 // check if other player has caught target        
                 //if (playerTwo.position == target.position)  {
-                  //  playerTwo.score++;              // increment their score
-                    //this.gameState = "COLLISION";   // go to COLLISION state
-                }
+                 //   playerTwo.score++;              // increment their score
+                //    this.gameState = "COLLISION";   // go to COLLISION state
+                //}
 
-                break;
+                //break;
 
             // This state is used to play an animation, after a target has been caught by a player 
             case "COLLISION":
