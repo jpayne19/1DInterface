@@ -34,15 +34,15 @@ class Controller {
 
                 
                 // check if player has caught target
-                if (playerOne.position == target.position)  {
+                if (playerOne.position == playerTwo.position)  {
                     playerOne.score++;              // increment score
                     this.gameState = "COLLISION";   // go to COLLISION state
                 }
                 
                 // check if other player has caught target        
-                if (playerTwo.position == target.position)  {
-                    playerTwo.score++;              // increment their score
-                    this.gameState = "COLLISION";   // go to COLLISION state
+                //if (playerTwo.position == target.position)  {
+                  //  playerTwo.score++;              // increment their score
+                    //this.gameState = "COLLISION";   // go to COLLISION state
                 }
 
                 break;
